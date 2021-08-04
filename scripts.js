@@ -5,7 +5,7 @@ const userCreator=async ()=> {
     let data=await response.json();
 
     let fullName=JSON.stringify(data.results[0].name.first+' '+data.results[0].name.last);
-    let avatar=data.results[0].picture.medium;
+    let avatar=data.results[0].picture.large;
     document.querySelector('#user-profile').setAttribute('src',avatar);
     document.querySelector('#user-profile').setAttribute('alt','user-profile');
     document.querySelector('#user-name').innerHTML=data.results[0].name.first+' '+data.results[0].name.last;
