@@ -1,8 +1,11 @@
 /*Fonts*/
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@font-face {
+    font-family: Nunito;
+    src: url("assets/Nunito-Regular.ttf");
+}
 *{
-    font-family: 'Nunito', sans-serif;
+    font-family: Nunito, sans-serif;
 }
 
 /*General Styles*/
@@ -14,7 +17,7 @@ a{
     text-decoration: none;
 }
 body{
-    background: url("images/white-texture.png") fixed;
+    background: url("assets/white-texture.png") fixed;
     margin: 0;
 }
 h2{
@@ -25,7 +28,7 @@ h2{
 /*Header*/
 
 .header{
-    background: url("images/grey-texture.png") fixed;
+    background: url("assets/grey-texture.png") fixed;
     padding: 15px 50px;
     font-size: 20px;
 }
@@ -33,13 +36,15 @@ h2{
 /*My Page*/
 
 .my-page{
+    direction: rtl;
     display: grid;
     grid-template-columns: auto auto;
-    background: url("images/beige-texture.png") fixed;
+    background: url("assets/beige-texture.png") fixed;
     margin: 15px;
     border-radius: 4px;
 }
 .my-info{
+    direction: ltr;
     text-align: center;
     width: 80%;
     margin: 25px;
@@ -63,6 +68,7 @@ h2{
 /*My Friends*/
 
 .my-friends{
+    direction: ltr;
     margin: 25px;
     padding: 15px;
     width: 90%;
@@ -96,14 +102,16 @@ h2{
 /*Users*/
 
 .users{
+    direction: rtl;
     text-align: center;
     display: grid;
     grid-template-columns: auto auto;
-    background: url("images/beige-texture.png") fixed;
+    background: url("assets/beige-texture.png") fixed;
     margin: 15px;
     border-radius: 4px;
 }
 .user-card{
+    direction: ltr;
     width: 80%;
     margin: 25px;
     padding: 15px;
@@ -119,6 +127,7 @@ h2{
     color: #4b2625;
 }
 .user-info{
+    direction: ltr;
     margin: 25px;
     padding: 35px 10px;
     width: 85%;
@@ -128,7 +137,7 @@ h2{
 }
 .user-info #request{
     margin: 0 25px;
-    padding: 3px 20px;
+    padding: 4px 20px;
     background-color: rgba(136,255,125,0.9);
     border-radius: 3px;
     border: 2px solid #4b2625;
@@ -141,7 +150,7 @@ h2{
 }
 .user-info #reject{
     margin: 0 25px;
-    padding: 3px 20px;
+    padding: 4px 20px;
     background-color: rgba(255,48,3,0.66);
     border-radius: 3px;
     border: 2px solid #4b2625;
@@ -156,7 +165,7 @@ h2{
 /*Footer*/
 
 .footer{
-    background: url("images/grey-texture.png") fixed;
+    background: url("assets/grey-texture.png") fixed;
     padding: 30px;
     text-align: center;
     color: #e9e7e6;
@@ -165,13 +174,11 @@ h2{
 
 /*Responsive*/
 
-@media only screen and (max-width: 500px){
+@media screen and (max-width: 500px){
     .my-page{
-        display: grid;
-        grid-template-rows: auto auto;
+        display: block;
     }
     .users{
-        display: grid;
-        grid-template-rows: auto auto;
+        display: block;
     }
 }
