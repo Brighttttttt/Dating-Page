@@ -136,7 +136,7 @@ h2{
     font-size: 18px;
 }
 .user-info #request{
-    margin: 0 25px;
+    margin: 3px 25px;
     padding: 4px 20px;
     background-color: rgba(136,255,125,0.9);
     border-radius: 3px;
@@ -149,7 +149,7 @@ h2{
     background-color: #b3ffad;
 }
 .user-info #reject{
-    margin: 0 25px;
+    margin: 3px 25px;
     padding: 4px 20px;
     background-color: rgba(255,48,3,0.66);
     border-radius: 3px;
