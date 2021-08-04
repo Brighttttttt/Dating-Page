@@ -1,23 +1,18 @@
 var reqs=0;
 
-function userCreator() {
-    var req=new XMLHttpRequest();
-    req.open('Get','https://random-data-api.com/api/users/random_user');
-    req.onreadystatechange=function() {
-        let data=JSON.parse(this.responseText);
-        let fullName=JSON.stringify(data.first_name+' '+data.last_name);
-        let avatar=data.avatar;
-        if(this.readyState===4 && this.status===200) {
-            document.querySelector('#user-profile').setAttribute('src',avatar);
-            document.querySelector('#user-profile').setAttribute('alt','user-profile');
-            document.querySelector('#user-name').innerHTML=data.first_name+' '+data.last_name;
-            document.querySelector('#user-info').innerHTML='Username: '+data.username+'<br><br>'
-                +'Email: '+data.email+'<br><br>'+'Employment: '+data.employment.title+'<br><br>'+'Country: '+data.address.country+'<br><br>'+
-                '<button onclick="addFriend();userCreator()" id="request" class='+fullName+'>Request</button>'+
-                '<button onclick="userCreator()" id="reject">Reject</button>';
-        }
-    }
-    req.send();
+const userCreator=async ()=> {
+    let response=await fetch('https://randomuser.me/api/');
+    let data=await response.json();
+
+    let fullName=JSON.stringify(data.results[0].name.first+' '+data.results[0].name.last);
+    let avatar=data.results[0].picture.medium;
+    document.querySelector('#user-profile').setAttribute('src',avatar);
+    document.querySelector('#user-profile').setAttribute('alt','user-profile');
+    document.querySelector('#user-name').innerHTML=data.results[0].name.first+' '+data.results[0].name.last;
+    document.querySelector('#user-info').innerHTML='Username: '+data.results[0].login.username+'<br><br>'
+        +'Email: '+data.results[0].email+'<br><br>'+'City: '+data.results[0].location.city+'<br><br>'+
+        '<button onclick="addFriend();userCreator()" id="request" class='+fullName+'>Request</button>'+
+        '<button onclick="userCreator()" id="reject">Reject</button>';
 }
 
 function addFriend() {
@@ -28,5 +23,3 @@ function addFriend() {
     reqs++;
     document.querySelector('#friend-reqs').innerHTML='Requests: '+reqs;
 }
-
-console.log('ok');
